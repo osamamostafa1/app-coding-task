@@ -6,7 +6,11 @@
             </li>
             <li class="pointer" routerLinkActive="active" routerLink="/about-us">ABOUT</li>
             <li class="pointer" routerLinkActive="active" routerLink="/contact-us">CONTACT</li>
-            <li><a class="btn-primary-main" routerLink="/auth/login">LOGIN</a></li>
+            <li class="pointer" *ngIf="global?.currentUser" (click)="logout()">LOGOUT</li>
+            <li *ngIf="global?.currentUser"><a class="btn-primary-main" routerLink="/users">ENQUIRE</a>
+            </li>
+            <li *ngIf="global?.currentUser == undefined"><a class="btn-primary-main" routerLink="/auth/login">LOGIN</a>
+            </li>
         </ul>
         <ul class="flex md:hidden items-center">
             <img class="h-5 pointer" (click)="toggleSideBar()" src="../../../assets/image/menu.png" alt="">

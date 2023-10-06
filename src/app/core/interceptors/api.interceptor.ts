@@ -16,7 +16,7 @@ export class ApiInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('') || '';
+    const token = localStorage.getItem('app-coding-task-token') || '';
 
     let requestWithAuth: any;
     if (token != '') {
