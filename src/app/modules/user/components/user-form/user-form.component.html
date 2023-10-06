@@ -1,4 +1,4 @@
-<div class="p-3" [formGroup]="reactiveForm">
+<div class="p-3" [formGroup]="userForm">
     <div class="absolute -top-14 left-0 right-0 flex justify-center">
         <div
             class="flex items-center justify-center m-auto relative w-28 h-28 rounded-full overflow-hidden bg-dark-gray-main border-white border-2 ">
@@ -10,12 +10,20 @@
 
     <div class="mb-3 mt-14">
         <label class="form-label dark_gray">First Name</label>
-        <input type="text" class="form-control" placeholder="First Name…" formControlName="first_name">
+        <input type="text" class="form-control" placeholder="First Name…" formControlName="first_name"
+            [class.border-error]="!userForm.get('first_name')?.valid &&userForm.get('first_name')?.touched">
     </div>
+    <span class="text-red-500 text-xs font-bold mb-3"
+        *ngIf="userForm.get('first_name')?.invalid && userForm.get('first_name')?.touched">First Name is
+        required</span>
     <div class="mb-3">
         <label class="form-label dark_gray">Last Name</label>
-        <input type="text" class="form-control" placeholder="Last Name…" formControlName="last_name">
+        <input type="text" class="form-control" placeholder="Last Name…" formControlName="last_name"
+            [class.border-error]="!userForm.get('last_name')?.valid &&userForm.get('last_name')?.touched">
     </div>
+    <span class="text-red-500 text-xs font-bold mb-3"
+        *ngIf="userForm.get('last_name')?.invalid && userForm.get('last_name')?.touched">Last Name is
+        required</span>
     <div class="flex justify-between items-center">
         <a class="btn-default-main flex justify-between items-center px-2 mr-2 w-full" (click)="closeModal()">
             Cancel

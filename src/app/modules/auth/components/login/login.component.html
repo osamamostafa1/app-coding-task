@@ -7,12 +7,20 @@
             <p class="dark_gray mb-3">Please login to access your <span class="primary">Spaces</span> Dashboard </p>
             <div class="mb-3">
                 <label class="form-label dark_gray">Email</label>
-                <input type="email" class="form-control" placeholder="Email…" formControlName="email">
+                <input type="email" class="form-control" placeholder="Email…" formControlName="email"
+                    [class.border-error]="!loginForm.get('email')?.valid &&loginForm.get('email')?.touched">
             </div>
+            <span class="text-red-500 text-xs font-bold mb-3"
+                *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">Email is
+                required</span>
             <div class="mb-3">
                 <label class="form-label dark_gray">Password</label>
-                <input type="password" class="form-control" placeholder="**********" formControlName="password">
+                <input type="password" class="form-control" placeholder="**********" formControlName="password"
+                    [class.border-error]="!loginForm.get('password')?.valid &&loginForm.get('password')?.touched">
             </div>
+            <span class="text-red-500 text-xs font-bold mb-3"
+                *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">Password is
+                required</span>
             <div class="flex justify-between items-center">
                 <a href="" class="primary">Forgot password?</a>
                 <a class="btn-primary-main" (click)="onSubmit()">LOGIN</a>

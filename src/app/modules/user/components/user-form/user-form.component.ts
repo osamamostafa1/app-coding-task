@@ -13,19 +13,19 @@ import {
 })
 export class UserFormComponent {
   actionName: string = 'Add';
-  reactiveForm: FormGroup;
+  userForm: FormGroup;
   constructor(
     private dialogRef: MatDialogRef<UserFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder
   ) {
-    this.reactiveForm = this.createForm();
+    this.userForm = this.createForm();
   }
 
   ngOnInit() {
     if (this.data != null) {
       this.actionName = this.data?.action;
-      this.reactiveForm.patchValue({
+      this.userForm.patchValue({
         first_name: this.data.user?.first_name,
         last_name: this.data.user?.last_name,
       });
@@ -40,10 +40,10 @@ export class UserFormComponent {
   }
 
   onSubmit() {
-    if (this.reactiveForm.valid) {
-      this.dialogRef.close(this.reactiveForm.value);
+    if (this.userForm.valid) {
+      this.dialogRef.close(this.userForm.value);
     } else {
-      this.reactiveForm.markAllAsTouched();
+      this.userForm.markAllAsTouched();
     }
   }
 
