@@ -1,0 +1,24 @@
+.header {
+  background-color: #dedede;
+  box-shadow: $shadow;
+}
+
+.invisible {
+  margin-right: -244px;
+}
+.visible {
+  margin-right: 0px;
+}
+
+.user-item:hover {
+  background-color: $primary_hover;
+}
+
+@media (max-width: 768px) {
+  .details {
+    height: auto;
+    bottom: 16px;
+    top: 16px;
+    right: 10px;
+  }
+}

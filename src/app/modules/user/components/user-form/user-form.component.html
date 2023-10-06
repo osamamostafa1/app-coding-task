@@ -1,1 +1,28 @@
-<p>user-form works!</p>
+<div class="p-3" [formGroup]="reactiveForm">
+    <div class="absolute -top-14 left-0 right-0 flex justify-center">
+        <div
+            class="flex items-center justify-center m-auto relative w-28 h-28 rounded-full overflow-hidden bg-dark-gray-main border-white border-2 ">
+            <img class="w-16" src="../../../../../assets/image/icons8-user.png" alt="">
+            <input type="file" class="absolute right-0 top-0 bottom-0 left-0 opacity-0 pointer">
+        </div>
+    </div>
+
+    <div class="mb-3 mt-14">
+        <label class="form-label dark_gray">Username</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Username…
+    ">
+    </div>
+    <div class="mb-3">
+        <label class="form-label dark_gray">Password</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="**********">
+    </div>
+    <div class="flex justify-between items-center">
+        <a class="btn-default-main flex justify-between items-center px-2 mr-2 w-full" (click)="closeModal()">
+            Cancel
+        </a>
+        <a class="btn-primary-main flex justify-between items-center px-2 ml-2 w-full" (click)="onSubmit()">
+            {{actionName}}
+        </a>
+
+    </div>
+</div>
