@@ -1,6 +1,82 @@
 @import "colors";
 @import "scroll_bar";
+@import "navbar";
+@import "sidebar";
+
+@font-face {
+  font-family: SFNS-Display-Regular;
+  src: url("../font/SFNS-Display-Regular.ttf");
+}
+
+html,
+body {
+  height: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  font-family: SFNS-Display-Regular;
+  background-color: $bg;
+}
 
 .pointer {
   cursor: pointer;
+}
+
+h1 {
+  font-size: 25px;
+}
+p {
+  font-size: 15px;
+}
+a {
+  font-size: 14px;
+}
+
+.pt-70 {
+  padding-top: 70px;
+}
+
+.primary {
+  color: $primary;
+}
+.secondary {
+  color: $secondary;
+}
+.dark_gray {
+  color: $dark_gray;
+}
+
+.btn-primary-main {
+  background-color: $primary;
+  cursor: pointer;
+  border-radius: 20px;
+  min-width: 94px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.btn-primary-main:hover {
+  background-color: $secondary;
+}
+
+.active {
+  color: $primary !important;
+  font-weight: bold;
+}
+
+.h-main {
+  min-height: calc(100vh - 70px);
+}
+.form-control {
+  background-color: transparent;
+  border-color: $dark_gray;
+}
+
+.form-control:focus {
+  outline: 0 none !important;
+  box-shadow: none;
+  background-color: transparent;
+  border-color: $primary;
 }

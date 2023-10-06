@@ -1,1 +1,15 @@
-<p>navbar works!</p>
+<div class="navbar fixed top-0 z-20">
+    <div class="container transition-all">
+        <img class="h-10 pointer" routerLink="/" src="../../../assets/image/Logo.png" alt="">
+        <ul class="hidden md:flex items-center ">
+            <li class="pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">HOME
+            </li>
+            <li class="pointer" routerLinkActive="active" routerLink="/about-us">ABOUT</li>
+            <li class="pointer" routerLinkActive="active" routerLink="/contact-us">CONTACT</li>
+            <li><a class="btn-primary-main" routerLink="/auth/login">LOGIN</a></li>
+        </ul>
+        <ul class="flex md:hidden items-center">
+            <img class="h-5 pointer" (click)="toggleSideBar()" src="../../../assets/image/menu.png" alt="">
+        </ul>
+    </div>
+</div>

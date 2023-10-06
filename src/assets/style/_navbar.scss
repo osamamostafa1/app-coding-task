@@ -1,0 +1,16 @@
+.navbar {
+  height: 70px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: $shadow;
+}
+
+.navbar ul li {
+  color: $secondary;
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.navbar ul li:hover {
+  color: $primary;
+}

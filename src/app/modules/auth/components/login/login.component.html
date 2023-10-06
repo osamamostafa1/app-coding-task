@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="flex justify-center items-center h-main">
+    <div class="login flex bg-white rounded-lg my-10 relative overflow-hidden md:overflow-auto transition-all">
+        <img class="blur-2xl md:blur-0 transition-all w-full md:w-auto" src="../../../../../assets/image/Rectangle.png"
+            alt="">
+        <div class="absolute top-0 bottom-0 md:relative flex flex-col justify-center p-4 w-full transition-all">
+            <h1 class="secondary mb-3">Welcome back!</h1>
+            <p class="dark_gray mb-3">Please login to access your <span class="primary">Spaces</span> Dashboard </p>
+            <div class="mb-3">
+                <label class="form-label dark_gray">Username</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Username…
+            ">
+            </div>
+            <div class="mb-3">
+                <label class="form-label dark_gray">Password</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="**********">
+            </div>
+            <div class="flex justify-between items-center">
+                <a href="" class="primary">Forgot password?</a>
+                <a class="btn-primary-main" routerLink="/auth/login">LOGIN</a>
+            </div>
+        </div>
+    </div>
+</div>

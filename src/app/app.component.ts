@@ -8,5 +8,9 @@ import { SidebarService } from './services/sidebar.service';
 })
 export class AppComponent {
   title = 'app-coding-task';
-  constructor(public sideBarService: SidebarService) {}
+  constructor(public _SidebarService: SidebarService) {}
+
+  closeSidebar() {
+    this._SidebarService.sideBarSubject.next('close');
+  }
 }

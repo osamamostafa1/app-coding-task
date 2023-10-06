@@ -1,10 +1,9 @@
 <app-navbar></app-navbar>
-<div class="relative">
-  <div class="sidebar" [class]="sideBarService.sideBarSubject |async">
+<div class="relative pt-70 ">
+  <div class="sidebar z-10" [class]="_SidebarService.sideBarSubject |async">
     <app-sidebar></app-sidebar>
   </div>
-
-  <section class="main-section">
+  <section class="main-section h-main" (click)="closeSidebar()">
     <router-outlet></router-outlet>
   </section>
 </div>

@@ -44,12 +44,4 @@ $app-coding-task-theme: mat.define-light-theme(
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-html,
-body {
-  height: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
-}
-
 @import "global";

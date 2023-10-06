@@ -1,0 +1,15 @@
+.login {
+  width: 80%;
+}
+
+@media (min-width: 768px) {
+  .login {
+    width: 767px;
+  }
+}
+@media (max-width: 768px) {
+  .login .secondary,
+  .login .dark_gray {
+    color: black;
+  }
+}

@@ -1,0 +1,29 @@
+@import "colors";
+.sidebar {
+  position: fixed;
+  width: 250px;
+  left: -250px;
+  bottom: 0px;
+  top: 70px;
+  background-color: #fff;
+  box-shadow: $shadow;
+  overflow-y: auto;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open {
+  left: 0px;
+}
+
+.sidebar ul li:hover {
+  color: $primary;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    left: -250px;
+  }
+  .sidebar.open {
+    left: -250px;
+  }
+}
