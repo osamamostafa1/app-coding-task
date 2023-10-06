@@ -15,7 +15,7 @@
 
 </div>
 
-<div class="container transition-all">
+<div class="container transition-all table">
     <div class="flex relative overflow-hidden p-3">
         <div class="w-full p-3 bg-white rounded-s-lg box-shadow-main">
             <div class="flex justify-between items-center p-3 rounded-lg mb-3">
@@ -26,78 +26,34 @@
                     <p>Actions</p>
                 </div>
             </div>
-            <div class="flex justify-between items-center p-3 rounded-lg user-item"
-                [class.bg-primary-main]="isShowDetails && itemId == 1">
-                <div class="flex flex-col sm:flex-row items-center">
-                    <div class="rounded-full w-14 h-14 overflow-hidden">
-                        <img src="../../../../../assets/image/img-01.jpg" alt="">
+            <ng-container *ngFor="let user of users; trackBy: trackByFn">
+                <div class="flex justify-between items-center p-3 rounded-lg user-item"
+                    [class.bg-primary-main]="isShowDetails && itemId == user.id">
+                    <div class="flex flex-col sm:flex-row items-center">
+                        <div class="rounded-full w-14 h-14 overflow-hidden">
+                            <img [src]="user.avatar" alt="">
+                        </div>
+                        <p class="mx-2 secondary " [class.text-white]="isShowDetails && itemId == user.id">
+                            {{user.first_name}} {{user.last_name}}</p>
                     </div>
-                    <p class="mx-2 secondary " [class.text-white]="isShowDetails && itemId == 1">Viadmir Usov</p>
-                </div>
-                <div class="flex items-center" [class.hidden]="isShowDetails && itemId== 1">
-                    <div class="w-8 h-8 flex items-center justify-center icons pointer p-2 rounded-md"
-                        (click)="editUser('')">
-                        <img src="../../../../../assets/image/icons8-edit2.png" alt="">
-                    </div>
-                    <div class="w-8 h-8 flex items-center justify-center icons pointer p-2 rounded-md mx-2"
-                        (click)="deleteUser('')">
-                        <img src="../../../../../assets/image/icons8-delete.png" alt="">
-                    </div>
-                    <div class="w-8 h-8 flex items-center justify-center pointer p-2 rounded-md"
-                        (click)="showDetails(1)">
-                        <img src="../../../../../assets/image/icons8-right.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <hr class="my-2">
-            <div class="flex justify-between items-center p-3 rounded-lg user-item"
-                [class.bg-primary-main]="isShowDetails && itemId == 2">
-                <div class="flex flex-col sm:flex-row items-center">
-                    <div class="rounded-full w-14 h-14 overflow-hidden">
-                        <img src="../../../../../assets/image/img-01.jpg" alt="">
-                    </div>
-                    <p class="mx-2 secondary " [class.text-white]="isShowDetails && itemId == 2">Viadmir Usov</p>
-                </div>
-                <div class="flex items-center hi" [class.hidden]="isShowDetails && itemId == 2">
-                    <div class="w-8 h-8 flex items-center justify-center icons pointer p-2 rounded-md"
-                        (click)="editUser('')">
-                        <img src="../../../../../assets/image/icons8-edit2.png" alt="">
-                    </div>
-                    <div class="w-8 h-8 flex items-center justify-center icons pointer p-2 rounded-md mx-2"
-                        (click)="deleteUser('')">
-                        <img src="../../../../../assets/image/icons8-delete.png" alt="">
-                    </div>
-                    <div class="w-8 h-8 flex items-center justify-center pointer p-2 rounded-md"
-                        (click)="showDetails(2)">
-                        <img src="../../../../../assets/image/icons8-right.png" alt="">
+                    <div class="flex items-center" [class.hidden]="isShowDetails && itemId== user.id">
+                        <div class="w-8 h-8 flex items-center justify-center icons pointer p-2 rounded-md"
+                            (click)="updateUser(user)">
+                            <img src="../../../../../assets/image/icons8-edit2.png" alt="">
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center icons pointer p-2 rounded-md mx-2"
+                            (click)="deleteUser(user)">
+                            <img src="../../../../../assets/image/icons8-delete.png" alt="">
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center pointer p-2 rounded-md"
+                            (click)="showDetails(user)">
+                            <img src="../../../../../assets/image/icons8-right.png" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <hr class="my-2">
-            <div class="flex justify-between items-center p-3 rounded-lg user-item "
-                [class.bg-primary-main]="isShowDetails && itemId == 3">
-                <div class="flex flex-col sm:flex-row items-center">
-                    <div class="rounded-full w-14 h-14 overflow-hidden">
-                        <img src="../../../../../assets/image/img-01.jpg" alt="">
-                    </div>
-                    <p class="mx-2 secondary " [class.text-white]="isShowDetails && itemId == 3">Viadmir Usov</p>
-                </div>
-                <div class="flex items-center" [class.hidden]="isShowDetails && itemId == 3">
-                    <div class="w-8 h-8 flex items-center justify-center icons pointer p-2 rounded-md"
-                        (click)="editUser('')">
-                        <img src="../../../../../assets/image/icons8-edit2.png" alt="">
-                    </div>
-                    <div class="w-8 h-8 flex items-center justify-center icons pointer p-2 rounded-md mx-2"
-                        (click)="deleteUser('')">
-                        <img src="../../../../../assets/image/icons8-delete.png" alt="">
-                    </div>
-                    <div class="w-8 h-8 flex items-center justify-center pointer p-2 rounded-md"
-                        (click)="showDetails(3)">
-                        <img src="../../../../../assets/image/icons8-right.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <hr class="my-2">
+                <hr class="my-2">
+            </ng-container>
+
 
         </div>
         <div class="details bg-gray-main box-shadow-main p-3 rounded-e-lg absolute h-auto  md:relative invisible transition-all"
@@ -106,22 +62,8 @@
                 <img class="w-5 pointer" src="../../../../../assets/image/icons8-delete_sign.png"
                     (click)="hideDetails()" alt="">
             </div>
-            <div class="flex flex-col items-center">
-                <div class="rounded-full w-32 h-32 overflow-hidden mb-3">
-                    <img class="w-full" src="../../../../../assets/image/img-01.jpg" alt="">
-                </div>
-                <h1 class="mx-2 secondary mb-3">Viadmir Usov</h1>
-            </div>
-            <div class="flex justify-between items-center">
-                <a class="btn-primary-main flex justify-between items-center px-2 mr-2" (click)="editUser('')">
-                    <img class="w-4 mr-2" src="../../../../../assets/image/icons8-edit.png" alt="">
-                    Edit
-                </a>
-                <a class="btn-default-main flex justify-between items-center px-2 ml-2" (click)="deleteUser('')">
-                    <img class="w-4 mr-2" src="../../../../../assets/image/icons8-delete.png" alt="">
-                    Delete
-                </a>
-            </div>
+            <app-user-details [user]="userItem" (editUserEmitter)="updateUser($event)"
+                (deleteUserEmitter)="deleteUser($event)"></app-user-details>
         </div>
     </div>
 </div>

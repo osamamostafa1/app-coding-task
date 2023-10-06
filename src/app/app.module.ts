@@ -11,6 +11,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { ApiInterceptorProvider } from './core/interceptors/api.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
       positionClass: 'toast-bottom-right',
     }),
   ],
-  providers: [],
+  providers: [ApiInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

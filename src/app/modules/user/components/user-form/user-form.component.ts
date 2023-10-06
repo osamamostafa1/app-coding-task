@@ -26,16 +26,16 @@ export class UserFormComponent {
     if (this.data != null) {
       this.actionName = this.data?.action;
       this.reactiveForm.patchValue({
-        name: this.data.data?.name,
-        job: this.data.data?.job,
+        first_name: this.data.user?.first_name,
+        last_name: this.data.user?.last_name,
       });
     }
   }
 
   createForm() {
     return this.fb.group({
-      name: ['', Validators.required],
-      job: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
     });
   }
 

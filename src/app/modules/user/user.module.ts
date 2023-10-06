@@ -7,12 +7,14 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserMessageFormComponent } from './components/user-message-form/user-message-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
   declarations: [
     UserListComponent,
     UserFormComponent,
     UserMessageFormComponent,
+    UserDetailsComponent,
   ],
   imports: [
     CommonModule,

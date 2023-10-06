@@ -2,19 +2,19 @@
     <div class="absolute -top-14 left-0 right-0 flex justify-center">
         <div
             class="flex items-center justify-center m-auto relative w-28 h-28 rounded-full overflow-hidden bg-dark-gray-main border-white border-2 ">
-            <img class="w-16" src="../../../../../assets/image/icons8-user.png" alt="">
+            <img class="w-full" [src]="data.user?.avatar" alt="" *ngIf="actionName == 'Save'">
+            <img class="w-8" src="../../../../../assets/image/icons8-user.png" alt="" *ngIf="actionName == 'Add'">
             <input type="file" class="absolute right-0 top-0 bottom-0 left-0 opacity-0 pointer">
         </div>
     </div>
 
     <div class="mb-3 mt-14">
-        <label class="form-label dark_gray">Username</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Username…
-    ">
+        <label class="form-label dark_gray">First Name</label>
+        <input type="text" class="form-control" placeholder="First Name…" formControlName="first_name">
     </div>
     <div class="mb-3">
-        <label class="form-label dark_gray">Password</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="**********">
+        <label class="form-label dark_gray">Last Name</label>
+        <input type="text" class="form-control" placeholder="Last Name…" formControlName="last_name">
     </div>
     <div class="flex justify-between items-center">
         <a class="btn-default-main flex justify-between items-center px-2 mr-2 w-full" (click)="closeModal()">

@@ -12,9 +12,7 @@ export class NavbarComponent {
     private _SidebarService: SidebarService,
     public global: Global,
     private _AuthService: AuthService
-  ) {
-    console.log(global?.currentUser);
-  }
+  ) {}
 
   toggleSideBar() {
     this._SidebarService.changeSideBar();
