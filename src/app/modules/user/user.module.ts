@@ -8,6 +8,8 @@ import { UserMessageFormComponent } from './components/user-message-form/user-me
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     ReactiveFormsModule,
     //materials
     MatDialogModule,
+    InfiniteScrollModule,
+    SharedModule,
   ],
 })
 export class UserModule {}

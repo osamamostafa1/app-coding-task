@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { UserFormComponent } from '../user-form/user-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
@@ -12,10 +12,12 @@ import { User } from 'src/app/core/model/user.model';
   styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit {
+  loader: boolean = false;
   itemId: any = null;
   isShowDetails: boolean = false;
   page: number = 1;
-  per_page: number = 4;
+  per_page: number = 6;
+  total_page: number = 0;
   users: User[] = [];
   userItem: User = {};
   constructor(
@@ -40,10 +42,13 @@ export class UserListComponent implements OnInit {
   }
 
   getAllUsers() {
+    this.loader = true;
     this._UserService
       .getUsers(this.page, this.per_page)
       .subscribe((res: User[] | any) => {
+        this.total_page = res.total;
         this.users = res.data;
+        this.loader = false;
       });
   }
 
@@ -122,5 +127,12 @@ export class UserListComponent implements OnInit {
         this.toastr.error('The user was not deleted successfully!');
       }
     );
+  }
+
+  onScrollDown(ev: any) {
+    if (this.total_page > this.per_page) {
+      this.per_page += 1;
+      this.getAllUsers();
+    }
   }
 }

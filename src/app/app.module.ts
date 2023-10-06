@@ -22,6 +22,7 @@ import { ApiInterceptorProvider } from './core/interceptors/api.interceptor';
     AboutUsComponent,
     ContactUsComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

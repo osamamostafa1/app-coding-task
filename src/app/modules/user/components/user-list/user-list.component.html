@@ -15,8 +15,8 @@
 
 </div>
 
-<div class="container transition-all table">
-    <div class="flex relative overflow-hidden p-3">
+<div class="container transition-all" infiniteScroll (scrolled)="onScrollDown($event)">
+    <div class="flex relative overflow-hidden p-3 ">
         <div class="w-full p-3 bg-white rounded-s-lg box-shadow-main">
             <div class="flex justify-between items-center p-3 rounded-lg mb-3">
                 <div class="flex items-center">
@@ -30,8 +30,8 @@
                 <div class="flex justify-between items-center p-3 rounded-lg user-item"
                     [class.bg-primary-main]="isShowDetails && itemId == user.id">
                     <div class="flex flex-col sm:flex-row items-center">
-                        <div class="rounded-full w-14 h-14 overflow-hidden">
-                            <img [src]="user.avatar" alt="">
+                        <div class="rounded-full w-14 h-14 overflow-hidden flex justify-center items-center">
+                            <img class="max-w-none h-full" [src]="user.avatar" alt="">
                         </div>
                         <p class="mx-2 secondary " [class.text-white]="isShowDetails && itemId == user.id">
                             {{user.first_name}} {{user.last_name}}</p>
@@ -53,7 +53,7 @@
                 </div>
                 <hr class="my-2">
             </ng-container>
-
+            <app-spinner *ngIf="loader"></app-spinner>
 
         </div>
         <div class="details bg-gray-main box-shadow-main p-3 rounded-e-lg absolute h-auto  md:relative invisible transition-all"
