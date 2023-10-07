@@ -9,6 +9,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 describe('AuthGuard', () => {
   let guard: AuthGuard;
 
@@ -20,6 +21,7 @@ describe('AuthGuard', () => {
         { provide: MatDialog, useValue: {} },
         { provide: MatDialogRef, useValue: {} },
         { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: ToastrService, useValue: {} },
       ],
     });
     guard = TestBed.inject(AuthGuard);

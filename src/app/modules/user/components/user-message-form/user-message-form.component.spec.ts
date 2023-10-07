@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserMessageFormComponent } from './user-message-form.component';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+} from '@angular/material/dialog';
 
 describe('UserMessageFormComponent', () => {
   let component: UserMessageFormComponent;
@@ -8,7 +13,12 @@ describe('UserMessageFormComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UserMessageFormComponent]
+      declarations: [UserMessageFormComponent],
+      providers: [
+        { provide: MatDialog, useValue: {} },
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+      ],
     });
     fixture = TestBed.createComponent(UserMessageFormComponent);
     component = fixture.componentInstance;
